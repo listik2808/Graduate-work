@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public bool OnGround => _onGround;
 
-    private int _reward;
+    private int _coint;
     private MovementPlayer _move;
 
     public event UnityAction GameOver;
@@ -27,8 +27,8 @@ public class Player : MonoBehaviour
 
     public void ResetGame()
     {
-        _reward = 0;
-        ScoreChanged?.Invoke(_reward);
+        _coint = 0;
+        ScoreChanged?.Invoke(_coint);
         _move.ResetPlayer();
     }
 
@@ -46,9 +46,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GetReward()
+    public void GetCoin()
     {
-        _reward++;
-        ScoreChanged?.Invoke(_reward);
+        _coint++;
+        ScoreChanged?.Invoke(_coint);
     }
 }

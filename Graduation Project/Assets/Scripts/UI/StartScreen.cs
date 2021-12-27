@@ -9,12 +9,12 @@ public class StartScreen : Screen
 
     public override void Close()
     {
-        CanvasGroup.alpha = 0;
-        Button.interactable = false;
+        gameObject.SetActive(false);
     }
 
     public override void Open()
     {
+        gameObject.SetActive(true);
         CanvasGroup.alpha = 1;
         Button.interactable = true;
     }

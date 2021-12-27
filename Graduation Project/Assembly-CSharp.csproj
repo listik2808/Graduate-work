@@ -69,7 +69,7 @@
     <Compile Include="Assets\Scripts\EnemyPollObject\ObjectGenerator.cs" />
     <Compile Include="Assets\Scripts\EnemyPollObject\ObjectPoll.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
-    <Compile Include="Assets\Scripts\Player\MovePlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\MovementPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Tracer\TracerPlayer.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverScreen.cs" />

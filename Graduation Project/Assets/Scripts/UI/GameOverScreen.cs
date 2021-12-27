@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameOverScreen : Screen
 {
@@ -9,12 +10,13 @@ public class GameOverScreen : Screen
 
     public override void Close()
     {
-        CanvasGroup.alpha = 0;
-        Button.interactable = false;
+        gameObject.SetActive(false);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public override void Open()
     {
+        gameObject.SetActive(true);
         CanvasGroup.alpha = 1;
         Button.interactable = true;
     }

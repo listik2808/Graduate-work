@@ -31,13 +31,14 @@ public class MovementPlayer : MonoBehaviour
     {
         Run();
 
+        _player.CheckGround();
+
         if (Input.GetKeyDown(KeyCode.Space) && _player.OnGround)
             TryGetJump();
 
         if (Input.GetKeyDown(KeyCode.S) && _player.OnGround)
             TryGetRoll();
 
-        _player.CheckGround();
     }
 
     public void ResetPlayer()
