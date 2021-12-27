@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class MovePlayer : MonoBehaviour
+[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(Animator))]
+public class MovementPlayer : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpPower;
@@ -28,9 +30,14 @@ public class MovePlayer : MonoBehaviour
     private void Update()
     {
         Run();
-        Jump();
-        Roll();
-        _player.CheckingGground();
+
+        if (Input.GetKeyDown(KeyCode.Space) && _player.OnGround)
+            TryGetJump();
+
+        if (Input.GetKeyDown(KeyCode.S) && _player.OnGround)
+            TryGetRoll();
+
+        _player.CheckGround();
     }
 
     public void ResetPlayer()
@@ -40,14 +47,11 @@ public class MovePlayer : MonoBehaviour
         _animator.SetBool(isRun, true);
     }
 
-    private void Jump()
+    private void TryGetJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _player.OnGround)
-        {
-            _animator.SetBool(isRun, false);
-            _animator.SetBool(isJump, true);
-            _rigidbody2D.velocity= new Vector2(_rigidbody2D.velocity.x ,_jumpPower);
-        }
+        _animator.SetBool(isRun, false);
+        _animator.SetBool(isJump, true);
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);
     } 
 
     private void Run()
@@ -58,12 +62,9 @@ public class MovePlayer : MonoBehaviour
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 
-    private void Roll()
+    private void TryGetRoll()
     {
-        if(Input.GetKeyDown(KeyCode.S)&& _player.OnGround)
-        {
-            _animator.SetBool(isRun, false);
-            _animator.SetBool(isRoll, true);
-        }
+        _animator.SetBool(isRun, false);
+        _animator.SetBool(isRoll, true);
     }
 }

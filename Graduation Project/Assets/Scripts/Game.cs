@@ -13,14 +13,14 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _startScreen.PlayerButtonClick += OnPlayeButtonClick;
-        _gameOverScreen.RestartButtonScreen += OnRestartButtonClick;
+        _gameOverScreen.ResetButton += OnRestartButtonClick;
         _player.GameOver += OnGameOver;
     }
 
     private void OnDisable()
     {
         _startScreen.PlayerButtonClick -= OnPlayeButtonClick;
-        _gameOverScreen.RestartButtonScreen -= OnRestartButtonClick;
+        _gameOverScreen.ResetButton -= OnRestartButtonClick;
         _player.GameOver -= OnGameOver;
     }
 
@@ -33,18 +33,18 @@ public class Game : MonoBehaviour
     private void OnPlayeButtonClick()
     {
         _startScreen.Close();
-        StartGame();
+        Play();
     }
 
     private void OnRestartButtonClick()
     {
         _gameOverScreen.Close();
-        _objectGeneratorBomb.ResetPoll();
-        _objectGeneratorCoin.ResetPoll();
-        StartGame();
+        _objectGeneratorBomb.Reset();
+        _objectGeneratorCoin.Reset();
+        Play();
     }
 
-    private void StartGame()
+    private void Play()
     {
         Time.timeScale = 1;
         _player.ResetGame();

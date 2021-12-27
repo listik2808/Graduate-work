@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour
     {
         if(collision.TryGetComponent(out Player player))
         {
-            player.ApplyDamage(_damage);
+            player.Damage(_damage);
             gameObject.SetActive(false);
         }
     }

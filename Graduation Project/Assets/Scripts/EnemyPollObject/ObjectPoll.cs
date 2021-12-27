@@ -45,7 +45,7 @@ public class ObjectPoll : MonoBehaviour
         }
     }
 
-    public void ResetPoll()
+    public void Reset()
     {
         foreach (var item in _pool)
         {
