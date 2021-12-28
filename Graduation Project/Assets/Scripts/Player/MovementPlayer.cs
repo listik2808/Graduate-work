@@ -34,10 +34,10 @@ public class MovementPlayer : MonoBehaviour
         _player.CheckGround();
 
         if (Input.GetKeyDown(KeyCode.Space) && _player.OnGround)
-            TryGetJump();
+            Jump();
 
         if (Input.GetKeyDown(KeyCode.S) && _player.OnGround)
-            TryGetRoll();
+            Roll();
 
     }
 
@@ -48,7 +48,7 @@ public class MovementPlayer : MonoBehaviour
         _animator.SetBool(IsRun, true);
     }
 
-    private void TryGetJump()
+    private void Jump()
     {
         _animator.SetBool(IsRun, false);
         _animator.SetBool(IsJump, true);
@@ -63,7 +63,7 @@ public class MovementPlayer : MonoBehaviour
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 
-    private void TryGetRoll()
+    private void Roll()
     {
         _animator.SetBool(IsRun, false);
         _animator.SetBool(IsRoll, true);

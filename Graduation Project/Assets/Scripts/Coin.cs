@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     {
         if(collision.TryGetComponent<Player>(out Player player))
         {
-            player.GetCoin();
+            player.AddCoin();
             gameObject.SetActive(false);
         }
     }
