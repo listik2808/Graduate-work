@@ -11,9 +11,9 @@ public class MovementPlayer : MonoBehaviour
     [SerializeField] private float _jumpPower;
     [SerializeField] private Vector3 _startPosition;
 
-    private const string isRun = "isRun";
-    private const string isJump = "isJump";
-    private const string isRoll = "isRoll";
+    private const string IsRun = "isRun";
+    private const string IsJump = "isJump";
+    private const string IsRoll = "isRoll";
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -45,27 +45,27 @@ public class MovementPlayer : MonoBehaviour
     {
         transform.position = _startPosition;
         _rigidbody2D.velocity = Vector2.zero;
-        _animator.SetBool(isRun, true);
+        _animator.SetBool(IsRun, true);
     }
 
     private void TryGetJump()
     {
-        _animator.SetBool(isRun, false);
-        _animator.SetBool(isJump, true);
+        _animator.SetBool(IsRun, false);
+        _animator.SetBool(IsJump, true);
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _jumpPower);
     } 
 
     private void Run()
     {
-        _animator.SetBool(isRoll, false);
-        _animator.SetBool(isJump, false);
-        _animator.SetBool(isRun, true);
+        _animator.SetBool(IsRoll, false);
+        _animator.SetBool(IsJump, false);
+        _animator.SetBool(IsRun, true);
         transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 
     private void TryGetRoll()
     {
-        _animator.SetBool(isRun, false);
-        _animator.SetBool(isRoll, true);
+        _animator.SetBool(IsRun, false);
+        _animator.SetBool(IsRoll, true);
     }
 }

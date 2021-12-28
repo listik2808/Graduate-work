@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
+using IJunior.TypedScenes;
 
 public class GameOverScreen : Screen
 {
@@ -11,7 +11,7 @@ public class GameOverScreen : Screen
     public override void Close()
     {
         gameObject.SetActive(false);
-        SceneManager.LoadScene("SampleScene");
+        SampleScene.Load();
     }
 
     public override void Open()
